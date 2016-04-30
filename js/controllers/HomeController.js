@@ -135,61 +135,32 @@ app.controller('HomeController', ['$scope', function($scope) {
 	
   ];
 	
-	
 
-	
-	$scope.title = "IMDB + Brian's Top 8 Movies";
-	$scope.owner = "Brian";
-	$scope.github = "https://github.com/bstant/is219_p3";
-	
-	
-	
-	
-	
-	
-	
-	/* ADD FUNCTIONS FOR STEP 7 HERE */
-	$scope.like = function(index)
-	{
-		$scope.movies[index].likes++;
-		return $scope.movies[index].likes;
-	}
-	
-	$scope.dislike = function(index)
-	{
-		$scope.movies[index].dislikes++;
-		return $scope.movies[index].dislikes;
-	}
-	
-	$scope.posterClick = function(index)
-	{
-		
-		if($scope.movies[index].posterindex <= $scope.movies[index].posters.length - 2)
-		{
-			$scope.movies[index].posterindex++;
-		}
-		else
-		{
-			$scope.movies[index].posterindex = 0;
-		}
-		
-		return $scope.posterindex;
-	}
-	
-	$scope.timeText = function(minutes)
-	{
-		var hours;
-		var mins;
-		
-		hours = Math.floor(minutes/60);
-		mins = minutes%60;
-		
-		var run = hours + "h " + mins + "m";
-		return run;
-	}		
-}]);
-	
-	
-	
-	
-}]);
+        $scope.title = "IMDB + Brian's Top 8 Movies";
+        $scope.owner = "Brian";
+        $scope.github = "https://github.com/bstant/is219_p3";
+
+        /* ADD FUNCTIONS FOR STEP 7 HERE */
+
+        $scope.like = function (index) {
+            $scope.movies[index].likes++;
+        }
+
+        $scope.dislike = function (index) {
+            $scope.movies[index].dislikes++;
+        }
+
+        $scope.posterClick = function (index) {
+            $scope.movies[index].posterindex++;
+            if ($scope.movies[index].posterindex == $scope.movies[index].posters.length) {
+                $scope.movies[index].posterindex = 0;
+            }
+        }
+
+        $scope.timeText = function (minutes) {
+            $scope.hour = Math.floor(minutes / 60);
+            $scope.min = minutes % 60;
+            return $scope.hour + " hours " + $scope.min + " minutes";
+        }
+
+    }]);
